@@ -1,4 +1,4 @@
-# passport-prisma-template
+# JWT-API-template
 
 Template for authenticating users with JWT as a REST API call
 npm init -y
