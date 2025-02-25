@@ -1,5 +1,5 @@
 const passport = require('passport');
-const db = require('../db/userQueries.js')
+const db = require('../db/authentication.js')
 const JwtStrategy = require('passport-jwt').Strategy;
 const ExtractJwt = require('passport-jwt').ExtractJwt;
 const opts = {

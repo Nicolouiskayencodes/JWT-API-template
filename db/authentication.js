@@ -22,19 +22,15 @@ async function getLoginUser(username) {
       password: true,
     },
   })
-  if (user) { await prisma.user.update({
+  return user;
+}
+async function getUser(username) {
+  const user = await prisma.user.findUnique({
     where: {
       username: username
     },
-    select: {
-      username: true,
-      password: true,
-    },
-    data: {
-      lastActive: new Date(),
-    },
   })
-  return user;
-}}
+  return user
+}
 
-module.exports = { createUser, getLoginUser,}
+module.exports = { createUser, getLoginUser, getUser}
