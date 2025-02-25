@@ -1,20 +1,13 @@
 # passport-prisma-template
 
-Template for authenticating users 
+Template for authenticating users with JWT as a REST API call
 npm init -y
-npm install express express-session passport passport-local bcryptjs ejs @prisma/client @quixo3/prisma-session-store
+npm install express passport passport-jwt jsonwebtoken bcryptjs @prisma/client
 npm install dotenv prisma --save-dev
 
 npx prisma init
 
 add DATABASE_URL and SECRET to .env
-
-model Session {
-  id        String   @id
-  sid       String   @unique
-  data      String   @db.MediumText  // MediumText may be needed for MySql
-  expiresAt   DateTime
-}
 
 model Users {
   id    Int     @id @default(autoincrement())

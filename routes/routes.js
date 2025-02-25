@@ -1,20 +1,13 @@
 const router = require('express').Router();
-const controller = require('../controllers/controller.js')
+const passport = require('passport');
+const controllers = require('../controllers/')
+const authenticate = passport.authenticate('jwt', { session: false })
 
-router.post('/login', controller.login);
+router.post('/login', controllers.authentication.login);
 
-router.post('/register', controller.register);
+router.post('/register', controllers.authentication.createUser);
 
-router.get('/', controller.index);
 
-router.get('/login', controller.loginForm);
-
-router.get('/register', controller.registerForm);
-
-router.get('/logout', controller.logout);
-
-router.get('/login-success', controller.redirectIndex);
-
-router.get('/login-failure', controller.loginFailure);
+//use authenticate as middleware for protected routes
 
 module.exports = router;
